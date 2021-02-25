@@ -60,6 +60,11 @@ router.post('/complaints/new', upload.single('fileName'), (req, res) => {  // wh
             /* req.flash not showing yet coz of we not using res.redirect, which displays
             the flash on the redirected page. req.render just renders the page bt can pass
             parameters */
+
+            /* after, I will switch to res.redirect so I can show req.flash of sucessfullly submitting,
+            dont really need to show uploaded images on the same page, just redirect to Complaints
+            route where search can be done */
+            
             res.render('registerComplaints', {   
                 message: req.flash('success_msg'),  // not working
                 file: `/uploads/${req.file.filename}`     
