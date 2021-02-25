@@ -1,0 +1,34 @@
+<header class="jumbotron">
+    <h1 class="mt-4">All Complaints</h1>
+</header>
+
+<%= console.log(list) %>
+
+<%- include ("./partials/messages") %>
+<div class="container">
+    <div class="row">
+        <% if (list.length > 0){ %>
+            <% list.forEach(function(row){ %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                        <img src="/uploads/<%= row.fileName %>" alt="">
+                        <div class="caption">
+                            <h4><%= row.originalname %></h4>
+                        </div>
+                    </div>
+                </div>        
+            <% }) %>
+        <% }else{ %>            
+            <span>No Record Found</span>     
+        <% } %>
+    </div>
+</div>
+
+
+        
+        
+   
+
+
+<a href="/" class="btn btn-secondary">Go Back</a>
+<a href="/" class="btn btn-secondary">Logout</a> 
