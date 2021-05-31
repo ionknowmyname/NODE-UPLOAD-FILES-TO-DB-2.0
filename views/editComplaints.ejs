@@ -1,0 +1,102 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          <i class="fas fa-user-plus"></i> Update
+        </h1>
+       
+
+        <%- include ("./partials/messages") %>
+        <form action="/edit/complaints/edit/<%= list._id %>?_method=PATCH" method="POST" enctype="multipart/form-data"> 
+
+          <div class="form-group">
+            <label for="designation">Choose a Designation:</label>
+            <select name="designation" id="designation">
+              <% let options = [ "Select Designation", "Prof.", "Dr./Dr(Mrs).", "Mr./Mrs.", "Undergraduate", "Graduate" ]; %>
+              
+              <% for(let i = 0; i < options.length; i++) { %>
+                <% if(options[i] == "Select Designation"){ %>
+                  <option value="" disabled selected hidden>Select Designation</option>
+                <% } %>
+
+                <option value='<%= options[i] %>'><%= options[i] %></option>
+              <% } %>
+            </select>
+          </div>
+    
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="name"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="Enter Name"
+              value="<%= list.name %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="staffID">Staff ID / Matric No.</label>
+            <input
+              type="staffID"
+              id="staffID"
+              name="staffID"
+              class="form-control"
+              placeholder="Enter staff ID / Matric" 
+              value="<%= list.staffID %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Staff/Student Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email" 
+              value="<%= list.email %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="phone"
+              id="phone"
+              name="phone"
+              class="form-control"
+              placeholder="Enter Phone number"
+              value="<%= list.phone %>"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="summary">Summary of Complaint</label>
+            <textarea 
+              id="summary" 
+              name="summary" 
+              class="form-control"
+              rows="4" 
+              cols="50"
+              value="<%= list.summary %>"
+            ></textarea>
+          </div>
+        
+          <br>
+          <div class="form-group">
+            <input type="file" name="fileName" id="pic" class="form-control-file">
+          </div> 
+        
+            
+          <br>
+          <button type="submit" class="btn btn-primary btn-block">UPDATE</button>
+
+        </form>
+
+        <p class="lead mt-4">View all Complaints? <a href="/complaints">All Complaints</a></p>
+      </div>
+    </div>
+  </div>
+  

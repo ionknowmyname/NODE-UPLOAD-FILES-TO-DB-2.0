@@ -3,9 +3,11 @@ const mongoose = require('mongoose')
 const expressLayouts = require("express-ejs-layouts")
 const flash = require("connect-flash");
 const session = require("express-session");   // req.flash requires express-sessions
+const methodOverride = require('method-override')
 
 const addComplaints = require('./routes/addComplaints')
-
+const editComplaints = require('./routes/editComplaints')
+// const allRoutes = require('./routes/')
 
 ////////////////////  MongoDB Connection ////////////////////////
 mongoose.connect('mongodb://localhost:27017/ImageUploadDB', {useNewUrlParser: true, useUnifiedTopology: true}, (err) =>{
@@ -32,6 +34,10 @@ app.set('view engine', 'ejs');
 //////////// Bodyparser middleware //////////////
 // app.use(express.json());    
 app.use(express.urlencoded({ extended: true }));  
+/////////////////////////////////////////////////
+
+//////////// method Override middleware //////////////
+app.use(methodOverride('_method'))   // to override post method in forms to delete
 /////////////////////////////////////////////////
 
 
@@ -61,6 +67,8 @@ app.use((req, res, next) => {
 
 
 app.use('/', addComplaints)
+app.use('/edit', editComplaints)
+//app.use(allRoutes)
 
 
 
@@ -70,3 +78,12 @@ app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`); 
 });
 /////////////////////////////////////////////////////
+
+
+
+/*
+tech  = tech.toLowerCase().replace(/, /g, ',')  // g for globally
+// replace (, ) with just(,) globally 
+// how to remove spaces after each comma when listing with commas
+
+*/

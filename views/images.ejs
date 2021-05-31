@@ -10,10 +10,11 @@
         <% if (list.length > 0){ %>
             <% list.forEach(function(row){ %>
                 <div class="col-md-3 col-sm-6">
-                    <div class="thumbnail">
-                        <img src="/uploads/<%= row.fileName %>" alt="">
-                        <div class="caption">
-                            <h4><%= row.name %></h4>
+                    <div class="card">   <!-- card-deck" -->
+                        <img class="card-img-top" src="/uploads/<%= row.fileName %>" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title"><%= row.name %></h4>
+                            <a href="#" class="btn btn-primary stretched-link">See More</a>
                         </div>
                     </div>
                 </div>        
@@ -30,5 +31,5 @@
    
 
 
-<a href="/" class="btn btn-secondary">Go Back</a>
-<a href="/" class="btn btn-secondary">Logout</a> 
+<a href="/complaints/" class="btn btn-secondary">Toggle View</a>
+<a href="/complaints/former" class="btn btn-secondary">Refresh</a> 

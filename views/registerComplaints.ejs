@@ -5,7 +5,7 @@
           <i class="fas fa-user-plus"></i> Add Complaints
         </h1>
         
-        <%= typeof message != 'undefined' ? message : '' %>
+        <!-- <%= typeof message != 'undefined' ? message : '' %> -->
         <%- include ("./partials/messages") %>
         <form action="/complaints/new" method="POST" enctype="multipart/form-data">
 
@@ -86,7 +86,7 @@
         
           <br>
           <div class="form-group">
-            <input type="file" name="fileName" id="pic" class="form-control-file">
+            <input type="file" name="filename" id="pic" class="form-control-file">
           </div> 
        
             

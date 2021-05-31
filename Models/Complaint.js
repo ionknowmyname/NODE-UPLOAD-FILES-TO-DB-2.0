@@ -12,7 +12,7 @@ const complaintSchema  = new Schema({
     fileName: { type: String }
 }, { timestamps: true })
 
-
+// summary: { [type: String] },
 
 const Complaint = mongoose.model("Complaint", complaintSchema)
 module.exports = Complaint
